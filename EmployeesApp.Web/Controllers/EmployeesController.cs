@@ -4,9 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace EmployeesApp.Web.Controllers
 {
-    public class EmployeesController : Controller
+    public class EmployeesController(IEmployeeService service) : Controller
     {
-        static EmployeeService service = new EmployeeService();
 
         [HttpGet("")]
         public IActionResult Index()
