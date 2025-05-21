@@ -6,7 +6,7 @@ namespace EmployeesApp.Web.Controllers
 {
     public class EmployeesController(IEmployeeService service) : Controller
     {
-
+        [ServiceFilter(typeof(MyLogFilter))]
         [HttpGet("")]
         public IActionResult Index()
         {
@@ -14,7 +14,6 @@ namespace EmployeesApp.Web.Controllers
 
             //foreach (var emp in model)
             //    Console.WriteLine($"{emp.Name}: {emp.Id}");
-
             return View(model);
         }
 
